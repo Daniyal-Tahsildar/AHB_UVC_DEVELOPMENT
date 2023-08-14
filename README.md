@@ -15,4 +15,11 @@ The AHB5 protocol is a critical part of modern System-on-Chip (SoC) designs, pro
 - Understanding of UVM concepts and methodologies.
 - ModelSim or other compatible simulation tool.
 
+  ### Directory Specifications:
+
+- [Common](Common) : This directory houses essential files that are shared and utilized across the entire testbench.
+- [Environment](Environment) : Contains the files for UVC implementation
+- [Test_Top](Test_Top) : Within this directory, you'll find UVM test files, with a collection of testcases each serving a specific purpose in thoroughly testing the AHB_UVC implementation.
+- [Images](Images) : Contains the images used in this readme file.
+
   TODO: Update ReadMe
