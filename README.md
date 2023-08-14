@@ -9,7 +9,7 @@ The AHB5 protocol is a critical part of modern System-on-Chip (SoC) designs, pro
 ## AHB UVC 
   <p align="center">
    <img width="60%"  src="Images/AHB_Block_Diagram.png"/> </p>
-  <p align="center">*AHB Block Diagram*</p> 
+  <p align="center"> <em>AHB Block Diagram </em></p> 
   
 - The AHB5 Interconnect is a crucial component in modern System-on-Chip (SoC) designs, facilitating seamless communication among different on-chip modules and intellectual property (IP) blocks.
 
@@ -25,11 +25,11 @@ The AHB5 protocol is a critical part of modern System-on-Chip (SoC) designs, pro
 
 <p align="center">
 <img width="60%" src="Images/AHB_Interconnect_arch.png"/> </p> 
-<p align="center">*AHB Interconnect Diagram* </p>
+<p align="center"><em>AHB Interconnect Diagram</em> </p>
 
 <p align="center">
 <img width="60%" src="Images/AHB_UVC_Diagram.png"/> </p>
-<p align="center">*AHB UVC Diagram* </p>
+<p align="center"><em> AHB UVC Diagram</em> </p>
   
 ### Features
 - Complete UVM-based testbench for AHB5 interface verification.
