@@ -6,10 +6,7 @@ The AHB5 protocol is a critical part of modern System-on-Chip (SoC) designs, pro
 
 **EDA Playground link :** [AHB_UVC_TEMPLATE](https://www.edaplayground.com/x/jKZu)
 
-## AHB UVC 
-  <p align="center">
-   <img width="60%"  src="Images/AHB_Block_Diagram.png"/> </p>
-  <p align="center"> <em>AHB Block Diagram </em></p> 
+## AHB Interconnect 
   
 - The AHB5 Interconnect is a crucial component in modern System-on-Chip (SoC) designs, facilitating seamless communication among different on-chip modules and intellectual property (IP) blocks.
 
@@ -24,8 +21,42 @@ The AHB5 protocol is a critical part of modern System-on-Chip (SoC) designs, pro
 - Thorough verification methodologies are essential to ensure the correct operation of the AHB5 Interconnect, involving rigorous testing of data transfer capabilities, arbitration mechanisms, and protocol compliance.
 
 <p align="center">
+   <img width="60%"  src="Images/AHB_Block_Diagram.png"/> </p>
+  <p align="center"> <em>AHB Block Diagram </em></p> 
+
+### AHB Transfer Phases:
+
+<strong>Arbitration Phase:</strong> <br>
+Masters contend for access through either a priority-based or round-robin approach. The master with the granted access initiates the request phase by signaling the arbiter. Once granted, this master gains access to the bus.
+
+<strong>Request Phase:</strong> <br>
+This phase occurs multiple times within the AHB protocol. The master with access drives address and control information to the target slave, initializing a new transfer.
+
+<strong>Data Phase:</strong> <br>
+In a write transfer, the master transmits data (hwdata) to the slave, while in a read transfer, the slave sends data (hrdata) back to the master. The data phase concludes when hreadyout = 1, indicating completion.
+
+<strong>AHB Address Decoding:</strong> <br>
+The interconnect module determines the target slave by referencing slave address ranges stored in its registers. By comparing the incoming request address with these ranges, the interconnect identifies the appropriate slave for the transaction.
+
+<p align="center">
 <img width="60%" src="Images/AHB_Interconnect_arch.png"/> </p> 
 <p align="center"><em>AHB Interconnect Diagram</em> </p>
+
+### AHB UVC (Universal Verification Component)
+
+- UVCs, or Universal Verification Components, play a pivotal role in accelerating the testbench development process.
+
+- The necessity of an AHB UVC arises whenever an AHB interface is present within the Design Under Test (DUT). The key decision revolves around selecting either the master or slave UVC based on specific requirements.
+
+- The testbench architecture must exhibit configurability, accommodating a parameterized count of masters and slaves to cater to diverse scenarios.
+
+- Prior to initiating transactions from the master, the DUT (AHB interconnect) mandates the configuration of slave address ranges.
+
+- The Reference model, often realized through a Scoreboard, should emulate the behavior of the DUT.
+
+- Testbench should have options to change the individual component behaviour for the following:
+  - Testcase build_phase
+  - Common config class using static variables.
 
 <p align="center">
 <img width="60%" src="Images/AHB_UVC_Diagram.png"/> </p>
